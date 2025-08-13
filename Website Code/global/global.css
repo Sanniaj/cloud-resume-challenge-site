@@ -1,0 +1,274 @@
+@font-face {
+    font-family: "Lemon Milk";
+    src: url('https://dr9dsu7muhkn0.cloudfront.net/fonts/LemonMilk/LEMONMILK-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Lemon Milk Medium";
+    src: url('https://dr9dsu7muhkn0.cloudfront.net/fonts/LemonMilk/LEMONMILK-medium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Roboto";
+    src: url("fonts/Roboto/Roboto-Light.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: white;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    color: #222;
+    font-family: "Lemon Milk Medium", Arial, sans-serif;
+}
+
+h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-align: center;
+}
+
+p {
+    font-family: "Roboto", Arial, sans-serif;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+img {
+    width: 80%;
+    height: auto;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* NAVIGATION BAR */
+.navbar {
+    background-color: #eeeeee;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+}
+
+.navbar a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ff5312;
+    text-decoration-line: underline;
+    transform: translateY(-2px);
+}
+
+.r-align {
+    display: flex;
+    gap: 0;
+    padding-right: 2rem;
+    font-family: "Lemon Milk", Arial, sans-serif;
+}
+
+.homePage {
+    font-family: "Lemon Milk Medium", Arial, sans-serif;
+    padding-left: 2rem;
+}
+
+/* BUTTONS */
+button {
+    font-family: "Lemon Milk Medium", Arial, sans-serif;
+    border-radius: 15px;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid #ff5312;
+    background-color: #ff5312;
+    box-shadow: none;
+    color: white;
+    text-align: center;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-block;
+    transform: translateY(0);
+}
+
+button:hover {
+    background-color: #f4f4f4;
+    color: #ff5312;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 83, 18, 0.2);
+}
+
+.primaryButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-lg {
+    width: auto !important;
+    max-width: 180px;
+    padding: 0.8rem 1rem;
+    align-self: center;
+}
+
+/* ANIMATIONS */
+.cursor {
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes expandWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80px;
+    }
+}
+
+/* FOOTER */
+.footer {
+    color: white;
+    background-color: #2a2a2a;
+    padding: 2rem 1rem 1rem;
+}
+
+.footer p {
+    text-align: center;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+.icons {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.icons svg {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin: 0 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.icons svg:hover {
+    color: #ff5312;
+    transform: translateY(-3px);
+}
+
+/* RESPONSIVE DESIGN - MOBILE */
+@media screen and (max-width: 768px) {
+    .navbar {
+        display: block !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background-color: #eeeeee !important;
+        padding: 15px 0 !important;
+        text-align: center !important;
+        z-index: 1000 !important;
+    }
+
+    .homePage {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 0 10px 0 !important;
+        padding: 0 !important;
+    }
+
+    .homePage a {
+        display: block !important;
+        text-align: center !important;
+        padding: 8px 0 !important;
+        margin: 0 !important;
+    }
+
+    .r-align {
+        display: block !important;
+        width: 100% !important;
+        text-align: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .r-align a {
+        display: inline-block !important;
+        padding: 8px 12px !important;
+        margin: 0 4px !important;
+        font-size: 0.9rem !important;
+        text-align: center !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+        padding: 12px 0 !important;
+    }
+
+    .homePage {
+        margin-bottom: 8px !important;
+    }
+
+    .r-align a {
+        padding: 6px 10px !important;
+        font-size: 0.85rem !important;
+        margin: 0 2px !important;
+    }
+}

@@ -1,0 +1,53 @@
+/* PROJECTS PAGE SPECIFIC STYLES */
+
+.pHeader {
+    color: #ff5312;
+    font-size: clamp(3rem, 10vw, 5.5rem);
+    padding-top: 120px;
+    padding-bottom: 2rem;
+    text-align: center;
+    font-family: "Lemon Milk Medium", Arial, sans-serif;
+}
+
+/* Future project styles - uncomment when projects are added */
+/*
+.project {
+  background: #f9f9f9;
+  padding: 2rem;
+  margin: 1rem 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.project:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.project h3 {
+  color: #ff5312;
+  margin-bottom: 0.5rem;
+}
+
+.project p {
+  margin-bottom: 0.5rem;
+}
+
+.project strong {
+  color: #333;
+}
+*/
+
+/* Mobile Responsiveness for Projects Page */
+@media screen and (max-width: 768px) {
+    .pHeader {
+        padding-top: 120px !important;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .pHeader {
+        padding-top: 110px !important;
+    }
+}
