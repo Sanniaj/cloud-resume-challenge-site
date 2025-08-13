@@ -6,48 +6,218 @@
     padding-top: 120px;
     padding-bottom: 2rem;
     text-align: center;
-    font-family: "Lemon Milk Medium", Arial, sans-serif;
+    font-family: "Lemon Milk Medium";
 }
 
-/* Future project styles - uncomment when projects are added */
-/*
+/* Projects Container */
+.projects-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.projects-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projects-intro p {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    color: #666;
+    line-height: 1.6;
+    font-family: "Roboto";
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Project Cards */
 .project {
-  background: #f9f9f9;
-  padding: 2rem;
-  margin: 1rem 0;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    border: 2px solid transparent;
 }
 
 .project:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: #ff5312;
 }
 
 .project h3 {
-  color: #ff5312;
-  margin-bottom: 0.5rem;
+    color: #ff5312;
+    margin-bottom: 1rem;
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    font-family: "Lemon Milk Medium";
 }
 
 .project p {
-  margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #333;
+    font-family: "Roboto";
 }
 
 .project strong {
-  color: #333;
+    color: #ff5312;
+    font-weight: 600;
 }
-*/
+
+/* Featured Project */
+.featured-project {
+    background: linear-gradient(135deg, #fff 0%, #fef9f7 100%);
+    border: 2px solid #ff5312;
+}
+
+.project-badge {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: #ff5312;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0 0 10px 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: "Lemon Milk";
+}
+
+/* Coming Soon Project */
+.coming-soon {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: 2px dashed #dee2e6;
+    opacity: 0.8;
+}
+
+.coming-soon:hover {
+    opacity: 1;
+    border-color: #ff5312;
+}
+
+/* Project Links */
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    border: 2px solid;
+    cursor: pointer;
+    font-family: "Lemon Milk";
+}
+
+.btn-primary {
+    background: #ff5312;
+    color: white;
+    border-color: #ff5312;
+}
+
+.btn-primary:hover {
+    background: white;
+    color: #ff5312;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 83, 18, 0.2);
+}
+
+.btn-secondary {
+    background: white;
+    color: #ff5312;
+    border-color: #ff5312;
+}
+
+.btn-secondary:hover {
+    background: #ff5312;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 83, 18, 0.2);
+}
+
+/* Animation for project cards */
+.project {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.project:nth-child(1) { animation-delay: 0.2s; }
+.project:nth-child(2) { animation-delay: 0.4s; }
+.project:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* Mobile Responsiveness for Projects Page */
 @media screen and (max-width: 768px) {
     .pHeader {
         padding-top: 120px !important;
+        font-size: clamp(2.5rem, 8vw, 4rem) !important;
+    }
+
+    .projects-container {
+        padding: 0 1rem !important;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+
+    .project {
+        padding: 1.5rem !important;
+    }
+
+    .project-links {
+        flex-direction: column !important;
+        gap: 0.8rem !important;
+    }
+
+    .btn-primary, .btn-secondary {
+        justify-content: center !important;
+        width: 100% !important;
     }
 }
 
 @media screen and (max-width: 480px) {
     .pHeader {
         padding-top: 110px !important;
+        font-size: clamp(2rem, 10vw, 3rem) !important;
+    }
+
+    .projects-container {
+        padding: 0 0.5rem !important;
+    }
+
+    .project {
+        padding: 1.2rem !important;
+    }
+
+    .projects-intro {
+        margin-bottom: 2rem !important;
     }
 }

@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParagraphInteractions();
 });
 
-// Enhanced scroll animations for about page paragraphs
+//scroll animations for about page paragraphs
 function initAboutPageAnimations() {
     const observerOptions = {
         threshold: 0.2,

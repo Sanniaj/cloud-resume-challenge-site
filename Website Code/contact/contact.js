@@ -39,7 +39,7 @@ function initContactAnimations() {
     });
 }
 
-// Enhanced copy email functionality with visual feedback
+// copy email functionality with visual feedback
 function initCopyEmailFeedback() {
     const copyButtons = document.querySelectorAll('button[onclick*="copyText"]');
 
