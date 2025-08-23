@@ -1,12 +1,12 @@
 @font-face {
     font-family: "Lemon Milk";
-    src: url('fonts/LemonMilk/LEMONMILK-regular.otf') format('opentype');
+    src: url('fonts/lemon_milk/LEMONMILK-regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 @font-face {
     font-family: "Lemon Milk Medium";
-    src: url('fonts/LemonMilk/LEMONMILK-medium.ttf') format('opentype');
+    src: url('fonts/lemon_milk/LEMONMILK-medium.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }

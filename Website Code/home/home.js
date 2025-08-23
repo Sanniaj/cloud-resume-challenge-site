@@ -2,7 +2,7 @@
 
 // typing animation for the home page
 document.addEventListener("DOMContentLoaded", () => {
-    const phrases = ["Hi, I'm Sannia Jean.", "Problem Solver."];
+    const phrases = ["Hi, I'm Sannia Jean."];
     const typedText = document.getElementById("typed-text");
     const cursor = document.querySelector(".cursor");
 

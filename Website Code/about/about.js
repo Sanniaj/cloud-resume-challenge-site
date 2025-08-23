@@ -65,7 +65,7 @@ function initParagraphInteractions() {
     });
 }
 
-// Optional: Add reading progress indicator
+//Add reading progress indicator
 function initReadingProgress() {
     const progressBar = document.createElement('div');
     progressBar.style.cssText = `
@@ -97,5 +97,4 @@ function initReadingProgress() {
     });
 }
 
-// Uncomment to enable reading progress indicator
-// initReadingProgress();
+ initReadingProgress();
