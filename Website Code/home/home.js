@@ -1,7 +1,32 @@
 // HOME PAGE JAVASCRIPT
 
+// Visitor counter functionality
+async function incrementAndDisplayVisitorCount() {
+    try {
+        const res = await fetch("https://32qady0p72.execute-api.us-east-1.amazonaws.com/Prod/", {
+            method: 'POST' // omit headers to avoid a preflight unless you need them
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+        const raw = await res.json();
+        const body = typeof raw.body === 'string' ? JSON.parse(raw.body) : (raw.body || raw);
+        const count = Number(
+            body?.visitor_count ?? body?.count ?? body?.visits ?? body?.value ?? body
+        );
+
+        const el = document.querySelector('.visitors-number');
+        if (el && Number.isFinite(count)) el.textContent = count.toLocaleString();
+    } catch (err) {
+        console.error('Visitor count error:', err);
+    }
+}
+
+
 // typing animation for the home page
 document.addEventListener("DOMContentLoaded", () => {
+    // Call visitor counter when page loads
+    incrementAndDisplayVisitorCount();
+
     const phrases = ["Hi, I'm Sannia Jean."];
     const typedText = document.getElementById("typed-text");
     const cursor = document.querySelector(".cursor");
@@ -49,9 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize other homepage features
     initScrollAnimations();
-    initParallaxEffect();
-    initCounterAnimations();
-    initInteractiveElements();
 });
 
 // scroll animations with intersection observer
@@ -87,16 +109,25 @@ function initScrollAnimations() {
     }, observerOptions);
 
     // Observe sections for animations
-    const sections = document.querySelectorAll('.content-section, .hero-stats, .projects-preview');
+    const sections = document.querySelectorAll('.content-section, .projects-preview');
+    const heroStats = document.querySelector('.hero-stats');
+
     sections.forEach(section => {
         section.style.opacity = '0';
         section.style.transform = 'translateY(30px)';
         section.style.transition = 'all 0.8s ease';
         observer.observe(section);
     });
-}
 
-// Parallax effect for hero section
+    if (heroStats) {
+        // keep visible, but still observe so animateCounters() can run
+        heroStats.style.opacity = '1';
+        heroStats.style.transform = 'translateY(0)';
+        heroStats.style.transition = 'all 0.8s ease';
+        observer.observe(heroStats);
+    }
+
+// parallax effect for hero section
 function initParallaxEffect() {
     const hero = document.querySelector('.hero-section');
     const heroImage = document.querySelector('.hero-image');
@@ -113,15 +144,15 @@ function initParallaxEffect() {
     });
 }
 
-// Counter animations for hero stats
+// counter animations for hero stats
 function animateCounters() {
-    const statNumbers = document.querySelectorAll('.stat-number');
+    const statNumbers = document.querySelectorAll('.stat-number:not(.visitors-number)');
 
     statNumbers.forEach(stat => {
-        const text = stat.textContent;
+        const text = stat.textContent.replace(/,/g, ''); // Remove commas for parsing
 
         // Only animate if it's a number
-        if (!isNaN(text)) {
+        if (!isNaN(text) && text !== '') {
             const target = parseInt(text);
             let current = 0;
             const increment = target / 60; // 60 frames for 1 second
@@ -131,7 +162,7 @@ function animateCounters() {
                     current = target;
                     clearInterval(timer);
                 }
-                stat.textContent = Math.floor(current);
+                stat.textContent = Math.floor(current).toLocaleString();
             }, 16);
         }
     });
@@ -210,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Dynamic background particles
+//background particles
 function createDynamicParticle() {
     const particle = document.createElement('div');
     particle.classList.add('dynamic-particle');
@@ -261,7 +292,7 @@ setInterval(() => {
     }
 }, 2000);
 
-// Performance optimization: pause animations when tab is not visible
+// pause animations when tab is not visible
 document.addEventListener('visibilitychange', function() {
     const animations = document.querySelectorAll('.particle, .floating-card');
     animations.forEach(element => {
@@ -273,7 +304,7 @@ document.addEventListener('visibilitychange', function() {
     });
 });
 
-// Keyboard navigation support
+// keyboard navigation support
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Tab') {
         document.body.classList.add('keyboard-navigation');
@@ -288,7 +319,7 @@ document.addEventListener('mousedown', function() {
 async function copyEmailWithFeedback() {
     try {
         await navigator.clipboard.writeText("hi@sanniajean.com");
-        showNotification('Email copied to clipboard!', 'success');
+        showNotification('Email copied!', 'success');
     } catch (err) {
         console.error('Failed to copy email: ', err);
         showNotification('Failed to copy email', 'error');
@@ -330,4 +361,5 @@ function showNotification(message, type = 'info') {
             }
         }, 300);
     }, 3000);
+}
 }

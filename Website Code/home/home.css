@@ -685,7 +685,6 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Enhanced focus states for accessibility */
 .cta-button:focus,
 .btn-outline:focus {
     outline: 2px solid #ff5312;
@@ -704,4 +703,9 @@ html {
         padding: 1rem;
         break-inside: avoid;
     }
+}
+
+.visitors-number {
+    animation: none !important;
+    opacity: 1 !important;
 }
