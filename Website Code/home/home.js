@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Call visitor counter when page loads
     incrementAndDisplayVisitorCount();
 
-    const phrases = ["Hi, I'm Sannia Jean."];
+    const phrases = ["Hi, I'm Sannia."];
     const typedText = document.getElementById("typed-text");
     const cursor = document.querySelector(".cursor");
 

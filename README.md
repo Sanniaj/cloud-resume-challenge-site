@@ -2,7 +2,7 @@
 
 A serverless resume website built as part of the [Cloud Resume Challenge](https://cloudresumechallenge.dev/). This project demonstrates cloud architecture skills using AWS services and infrastructure as code.
 
-🔗 **Live Site:** [www.sanniajean.com](https://www.sanniajean.com)
+🔗 **Live Site:** [sanniajean.com](https://www.sanniajean.com)
 
 ## Architecture
 
@@ -77,6 +77,38 @@ This project uses a fully serverless architecture on AWS:
 - AWS S3
 - AWS CloudFront
 
+## Project Structure
+```
+cloud-resume-challenge-site/
+├── lambda/
+│   └── visitor_counter.py     # Lambda function for visitor count
+├── Website Code/
+│   ├── about/
+│   │   ├── about.css
+│   │   ├── about.js
+│   │   └── aboutMe.html
+│   ├── contact/
+│   │   ├── contact.css
+│   │   ├── contact.html
+│   │   └── contact.js
+│   ├── global/
+│   │   ├── fonts/
+│   │   │   ├── lemon_milk/
+│   │   │   │   ├── LEMONMILK-Medium.otf
+│   │   │   │   └── LEMONMILK-Regular.otf
+│   │   │   └── Roboto/
+│   │   │       └── Roboto-Light.ttf
+│   │   ├── global.css
+│   │   └── global.js
+│   ├── home/
+│   │   ├── DSC01176-edited.jpg
+│   │   ├── home.css
+│   │   └── home.js
+│   └── projects/
+│       └── home.html
+└── README.md
+```
+
 ## Setup & Deployment
 
 ### Prerequisites
@@ -113,12 +145,8 @@ This project uses a fully serverless architecture on AWS:
    aws lambda update-function-code --function-name visitor-counter --zip-file fileb://function.zip
    ```
 
-### Environment Variables
-- `AWS_REGION`: Your AWS region (e.g., us-east-1)
-- `DYNAMODB_TABLE`: Name of your DynamoDB table
-- `API_ENDPOINT`: Your API Gateway endpoint URL
 
-## Challenges & Learnings
+## Challenges & Learning
 
 ### CORS Configuration
 Initially struggled with CORS errors when the frontend tried to call the API. Learned to properly configure CORS headers in both API Gateway and Lambda responses.
@@ -131,21 +159,6 @@ Had to learn how to properly invalidate CloudFront cache after updating website 
 
 ### Terraform State Management
 Learned the importance of proper state management and implemented S3 backend for Terraform state (coming soon).
-
-## Ideas for Special Features
-
-Here are some ideas to make your resume stand out:
-
-1. **Interactive Skills Bar** - Animated skill proficiency bars that fill on page load
-2. **Download Resume Button** - Generate/download PDF version of resume
-3. **Visitor Map** - Show visitor locations on a world map (using Lambda + GeoIP)
-4. **Project Showcase** - Carousel or grid of your projects with live demos
-5. **Recommendation Slider** - Testimonials/recommendations that auto-rotate
-6. **Dark/Light Mode** - Toggle between themes with preference saved in localStorage
-7. **Timeline Animation** - Animated timeline of work experience and education
-8. **Tech Stack Icons** - Animated, clickable icons for technologies you know
-9. **Easter Egg** - Hidden Konami code or click pattern that reveals something fun
-10. **Live Status** - "Currently learning: X" or "Open to opportunities" banner
 
 ## Cost Optimization
 
