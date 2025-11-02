@@ -76,23 +76,6 @@ This project uses a fully serverless architecture on AWS:
 - Terraform
 - AWS S3
 - AWS CloudFront
-- AWS Certificate Manager (for SSL)
-
-## Project Structure
-
-```
-cloud-resume-challenge-site/
-├── index.html              # Resume website
-├── styles.css              # Styling
-├── script.js               # Frontend JavaScript (visitor counter)
-├── lambda/
-│   └── visitor_counter.py  # Lambda function for visitor count
-├── terraform/
-│   ├── main.tf            # Main Terraform configuration
-│   ├── variables.tf       # Variable definitions
-│   └── outputs.tf         # Output values
-└── README.md
-```
 
 ## Setup & Deployment
 
