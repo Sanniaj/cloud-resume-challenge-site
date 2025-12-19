@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!isDeleting && j === currentPhrase.length) {
             // Phrase complete, pause before deleting
-            typeSpeed = 2000;
+            typeSpeed = 1300;
             isDeleting = true;
         } else if (isDeleting && j === 0) {
             // Deletion complete, move to next phrase
@@ -162,7 +162,7 @@ function animateCounters() {
                     current = target;
                     clearInterval(timer);
                 }
-                stat.textContent = Math.floor(current).toLocaleString();
+                stat.textContent = Math.floor(current);
             }, 16);
         }
     });
