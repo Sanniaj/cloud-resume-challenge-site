@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Call visitor counter when page loads
     incrementAndDisplayVisitorCount();
 
-    const phrases = ["Hi, I'm Sannia."];
+    const phrases = ["Hi, I'm Sannia Jean."];
     const typedText = document.getElementById("typed-text");
     const cursor = document.querySelector(".cursor");
 
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!isDeleting && j === currentPhrase.length) {
             // Phrase complete, pause before deleting
-            typeSpeed = 2000;
+            typeSpeed = 1300;
             isDeleting = true;
         } else if (isDeleting && j === 0) {
             // Deletion complete, move to next phrase
@@ -128,124 +128,124 @@ function initScrollAnimations() {
     }
 
 // parallax effect for hero section
-function initParallaxEffect() {
-    const hero = document.querySelector('.hero-section');
-    const heroImage = document.querySelector('.hero-image');
+    function initParallaxEffect() {
+        const hero = document.querySelector('.hero-section');
+        const heroImage = document.querySelector('.hero-image');
 
-    if (!hero || !heroImage) return;
+        if (!hero || !heroImage) return;
 
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
 
-        if (scrolled < window.innerHeight) {
-            heroImage.style.transform = `translateY(${rate}px)`;
-        }
-    });
-}
-
-// counter animations for hero stats
-function animateCounters() {
-    const statNumbers = document.querySelectorAll('.stat-number:not(.visitors-number)');
-
-    statNumbers.forEach(stat => {
-        const text = stat.textContent.replace(/,/g, ''); // Remove commas for parsing
-
-        // Only animate if it's a number
-        if (!isNaN(text) && text !== '') {
-            const target = parseInt(text);
-            let current = 0;
-            const increment = target / 60; // 60 frames for 1 second
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                stat.textContent = Math.floor(current).toLocaleString();
-            }, 16);
-        }
-    });
-}
-
-// Interactive elements and hover effects
-function initInteractiveElements() {
-    // button hover effects
-    const buttons = document.querySelectorAll('.cta-button, .btn-outline');
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', function(e) {
-            const ripple = document.createElement('span');
-            ripple.classList.add('ripple');
-            this.appendChild(ripple);
-
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-    });
-
-    // Project card interactive effects
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-8px) scale(1.02)';
-        });
-
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-
-    // Image hover effect
-    const heroImage = document.querySelector('.image-wrapper');
-    if (heroImage) {
-        heroImage.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) rotate(2deg)';
-        });
-
-        heroImage.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) rotate(0deg)';
-        });
-    }
-
-    // Floating card animation on hover
-    const floatingCard = document.querySelector('.floating-card');
-    if (floatingCard) {
-        floatingCard.addEventListener('mouseenter', function() {
-            this.style.animationPlayState = 'paused';
-            this.style.transform = 'translateY(-15px) rotate(-2deg) scale(1.05)';
-        });
-
-        floatingCard.addEventListener('mouseleave', function() {
-            this.style.animationPlayState = 'running';
-            this.style.transform = '';
-        });
-    }
-}
-
-// Smooth scrolling for navigation links
-document.addEventListener('DOMContentLoaded', function() {
-    const navLinks = document.querySelectorAll('.navbar a[href^="#"]');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
+            if (scrolled < window.innerHeight) {
+                heroImage.style.transform = `translateY(${rate}px)`;
             }
         });
+    }
+
+// counter animations for hero stats
+    function animateCounters() {
+        const statNumbers = document.querySelectorAll('.stat-number:not(.visitors-number)');
+
+        statNumbers.forEach(stat => {
+            const text = stat.textContent.replace(/,/g, ''); // Remove commas for parsing
+
+            // Only animate if it's a number
+            if (!isNaN(text) && text !== '') {
+                const target = parseInt(text);
+                let current = 0;
+                const increment = target / 60; // 60 frames for 1 second
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 16);
+            }
+        });
+    }
+
+// Interactive elements and hover effects
+    function initInteractiveElements() {
+        // button hover effects
+        const buttons = document.querySelectorAll('.cta-button, .btn-outline');
+        buttons.forEach(button => {
+            button.addEventListener('mouseenter', function(e) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                this.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Project card interactive effects
+        const projectCards = document.querySelectorAll('.project-card');
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Image hover effect
+        const heroImage = document.querySelector('.image-wrapper');
+        if (heroImage) {
+            heroImage.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) rotate(2deg)';
+            });
+
+            heroImage.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) rotate(0deg)';
+            });
+        }
+
+        // Floating card animation on hover
+        const floatingCard = document.querySelector('.floating-card');
+        if (floatingCard) {
+            floatingCard.addEventListener('mouseenter', function() {
+                this.style.animationPlayState = 'paused';
+                this.style.transform = 'translateY(-15px) rotate(-2deg) scale(1.05)';
+            });
+
+            floatingCard.addEventListener('mouseleave', function() {
+                this.style.animationPlayState = 'running';
+                this.style.transform = '';
+            });
+        }
+    }
+
+// Smooth scrolling for navigation links
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.navbar a[href^="#"]');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     });
-});
 
 //background particles
-function createDynamicParticle() {
-    const particle = document.createElement('div');
-    particle.classList.add('dynamic-particle');
-    particle.style.cssText = `
+    function createDynamicParticle() {
+        const particle = document.createElement('div');
+        particle.classList.add('dynamic-particle');
+        particle.style.cssText = `
         position: fixed;
         width: 4px;
         height: 4px;
@@ -257,81 +257,81 @@ function createDynamicParticle() {
         transition: all 0.5s ease;
     `;
 
-    // Random starting position at bottom
-    particle.style.left = Math.random() * window.innerWidth + 'px';
-    particle.style.top = window.innerHeight + 'px';
+        // Random starting position at bottom
+        particle.style.left = Math.random() * window.innerWidth + 'px';
+        particle.style.top = window.innerHeight + 'px';
 
-    document.body.appendChild(particle);
+        document.body.appendChild(particle);
 
-    // Animate upward
-    const animation = particle.animate([
-        {
-            transform: 'translateY(0) translateX(0) rotate(0deg) scale(1)',
-            opacity: 0.3
-        },
-        {
-            transform: `translateY(-${window.innerHeight + 100}px) translateX(${(Math.random() - 0.5) * 200}px) rotate(360deg) scale(0)`,
-            opacity: 0
-        }
-    ], {
-        duration: 8000 + Math.random() * 4000,
-        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-    });
+        // Animate upward
+        const animation = particle.animate([
+            {
+                transform: 'translateY(0) translateX(0) rotate(0deg) scale(1)',
+                opacity: 0.3
+            },
+            {
+                transform: `translateY(-${window.innerHeight + 100}px) translateX(${(Math.random() - 0.5) * 200}px) rotate(360deg) scale(0)`,
+                opacity: 0
+            }
+        ], {
+            duration: 8000 + Math.random() * 4000,
+            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+        });
 
-    animation.onfinish = () => {
-        if (document.body.contains(particle)) {
-            document.body.removeChild(particle);
-        }
-    };
-}
+        animation.onfinish = () => {
+            if (document.body.contains(particle)) {
+                document.body.removeChild(particle);
+            }
+        };
+    }
 
 // Create particles periodically
-setInterval(() => {
-    if (Math.random() < 0.3) { // 30% chance every interval
-        createDynamicParticle();
-    }
-}, 2000);
+    setInterval(() => {
+        if (Math.random() < 0.3) { // 30% chance every interval
+            createDynamicParticle();
+        }
+    }, 2000);
 
 // pause animations when tab is not visible
-document.addEventListener('visibilitychange', function() {
-    const animations = document.querySelectorAll('.particle, .floating-card');
-    animations.forEach(element => {
-        if (document.hidden) {
-            element.style.animationPlayState = 'paused';
-        } else {
-            element.style.animationPlayState = 'running';
-        }
+    document.addEventListener('visibilitychange', function() {
+        const animations = document.querySelectorAll('.particle, .floating-card');
+        animations.forEach(element => {
+            if (document.hidden) {
+                element.style.animationPlayState = 'paused';
+            } else {
+                element.style.animationPlayState = 'running';
+            }
+        });
     });
-});
 
 // keyboard navigation support
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Tab') {
-        document.body.classList.add('keyboard-navigation');
-    }
-});
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            document.body.classList.add('keyboard-navigation');
+        }
+    });
 
-document.addEventListener('mousedown', function() {
-    document.body.classList.remove('keyboard-navigation');
-});
+    document.addEventListener('mousedown', function() {
+        document.body.classList.remove('keyboard-navigation');
+    });
 
 // Copy email functionality with feedback
-async function copyEmailWithFeedback() {
-    try {
-        await navigator.clipboard.writeText("hi@sanniajean.com");
-        showNotification('Email copied!', 'success');
-    } catch (err) {
-        console.error('Failed to copy email: ', err);
-        showNotification('Failed to copy email', 'error');
+    async function copyEmailWithFeedback() {
+        try {
+            await navigator.clipboard.writeText("hi@sanniajean.com");
+            showNotification('Email copied!', 'success');
+        } catch (err) {
+            console.error('Failed to copy email: ', err);
+            showNotification('Failed to copy email', 'error');
+        }
     }
-}
 
 // notification system
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.textContent = message;
-    notification.style.cssText = `
+    function showNotification(message, type = 'info') {
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.textContent = message;
+        notification.style.cssText = `
         position: fixed;
         top: 20px;
         right: 20px;
@@ -345,21 +345,21 @@ function showNotification(message, type = 'info') {
         transition: transform 0.3s ease;
     `;
 
-    document.body.appendChild(notification);
+        document.body.appendChild(notification);
 
-    // Animate in
-    setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
-    }, 100);
-
-    // Remove after delay
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
+        // Animate in
         setTimeout(() => {
-            if (document.body.contains(notification)) {
-                document.body.removeChild(notification);
-            }
-        }, 300);
-    }, 3000);
-}
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+
+        // Remove after delay
+        setTimeout(() => {
+            notification.style.transform = 'translateX(100%)';
+            setTimeout(() => {
+                if (document.body.contains(notification)) {
+                    document.body.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
 }
