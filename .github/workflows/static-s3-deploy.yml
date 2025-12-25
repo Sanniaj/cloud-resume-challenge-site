@@ -2,7 +2,7 @@ name: Deploy HTML to S3
 on: push
 jobs: 
   deploy:
-    runs-on: ububtu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code from repo
         uses: actions/checkout@v4
@@ -12,4 +12,10 @@ jobs:
           aws-access-key-id: ${{  secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{  secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
+      - name: Deploy website to S3
+        run: |
+          aws s3 sync "website code/" "s3://sanniajean/" --delete
+
+        
+          
       
