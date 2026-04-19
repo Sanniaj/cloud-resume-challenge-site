@@ -2,9 +2,12 @@
 
 // Visitor counter functionality
 async function incrementAndDisplayVisitorCount() {
+    const API = "https://32qady0p72.execute-api.us-east-1.amazonaws.com/Prod/visitor";
+    const alreadyCounted = localStorage.getItem('visited');
+
     try {
-        const res = await fetch("https://32qady0p72.execute-api.us-east-1.amazonaws.com/Prod/", {
-            method: 'POST' // omit headers to avoid a preflight unless you need them
+        const res = await fetch(API, {
+            method: alreadyCounted ? 'GET' : 'POST',
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
@@ -13,6 +16,8 @@ async function incrementAndDisplayVisitorCount() {
         const count = Number(
             body?.visitor_count ?? body?.count ?? body?.visits ?? body?.value ?? body
         );
+
+        if (!alreadyCounted) localStorage.setItem('visited', 'true');
 
         const el = document.querySelector('.visitors-number');
         if (el && Number.isFinite(count)) el.textContent = count.toLocaleString();
