@@ -13,7 +13,12 @@ output "api_endpoint" {
   value       = "${aws_apigatewayv2_stage.visitor.invoke_url}/visitor"
 }
 
-output "route53_nameservers" {
-  description = "Paste these into Gandi's nameserver settings to delegate DNS to Route 53"
-  value       = aws_route53_zone.zone.name_servers
+output "acm_validation_records" {
+  description = "DNS records to add in Gandi to validate the ACM certificate (first-time cert issuance only)"
+  value       = { for dvo in aws_acm_certificate.site.domain_validation_options : dvo.domain_name => { name = dvo.resource_record_name, type = dvo.resource_record_type, value = dvo.resource_record_value } }
+}
+
+output "cloudfront_domain_for_dns" {
+  description = "Point a Gandi CNAME (or ALIAS) for sanniajean.com and www to this value"
+  value       = aws_cloudfront_distribution.site.domain_name
 }

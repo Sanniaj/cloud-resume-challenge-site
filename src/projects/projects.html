@@ -40,13 +40,13 @@
     <div class="projects-grid">
         <div class="project featured-project">
             <div class="project-badge">FEATURED</div>
-            <h3>FIRESCOPE &mdash; WILDFIRE RISK PREDICTION</h3>
+            <h3>FIRESCOPE &ndash; WILDFIRE RISK PREDICTION</h3>
             <p><strong>Tech:</strong> Python, scikit-learn, pandas, Flask, PostgreSQL, React, TypeScript, deck.gl, Docker</p>
             <p>
                 Team-built ML platform predicting California wildfire risk from live environmental data. Trained a
                 scikit-learn Random Forest classifier (300 trees, balanced class weights) on a purpose-built dataset of
-                1,000 labeled samples &mdash; NASA FIRMS fire detections paired with haversine-filtered no-fire points
-                &mdash; achieving 89.5% accuracy and 0.953 ROC-AUC under 10-fold stratified cross-validation.
+                1,000 labeled samples: NASA FIRMS fire detections paired with haversine-filtered no-fire points.
+                Achieved 89.5% accuracy and 0.953 ROC-AUC under 10-fold stratified cross-validation.
                 Built a live-inference Flask API that pulls 5 features per request (MODIS EVI, temperature, wind,
                 humidity, elevation) from NASA AppEEARS, Open-Meteo, and Open-Elevation, scales them with a fitted
                 StandardScaler, and returns a risk score and label that drives the risk-zone map. Also engineered
@@ -69,13 +69,13 @@
             </div>
         </div>
         <div class="project">
-            <h3>POCKETPILOT &mdash; AI PERSONAL FINANCE APP</h3>
+            <h3>POCKETPILOT &ndash; AI PERSONAL FINANCE APP</h3>
             <p><strong>Tech:</strong> React, TypeScript, Tailwind CSS, shadcn/ui, Vite, Expo, Firebase, Rust, Qdrant, Ollama, Docker</p>
             <p>
                 Team-built AI-assisted personal finance app: a monorepo housing a Vite + React web app, an Expo React
                 Native mobile app, Firebase backend functions, and two Rust microservices (transaction categorization
                 and Retrieval-Augmented Generation) backed by a local Ollama LLM (qwen2.5) and a Qdrant vector store.
-                My contribution was the front-end redesign &mdash; rebuilt the Dashboard, Transactions, Budgets, Goals,
+                My contribution was the front-end redesign: I rebuilt the Dashboard, Transactions, Budgets, Goals,
                 and Insights pages in React + TypeScript + Tailwind, imported and adapted a shadcn/ui-based component
                 library from a Figma design, and refined the overall theme, sidebar, and button system for a cleaner,
                 more consistent look across the web app.
@@ -91,15 +91,19 @@
         </div>
         <div class="project">
             <h3>CLOUD RESUME CHALLENGE</h3>
-            <p><strong>Tech:</strong> AWS (S3, CloudFront, Lambda, DynamoDB, Route 53), HTML/CSS, JavaScript, Python, Infrastructure as Code</p>
+            <p><strong>Tech:</strong> Terraform, AWS (S3, CloudFront, Lambda, API Gateway, DynamoDB, ACM, IAM), Gandi, Python, HTML, CSS, JavaScript, GitHub Actions</p>
             <p>
-                This portfolio website built as part of the Cloud Resume Challenge. Features serverless architecture
-                with AWS hosting, visitor counter functionality, and CI/CD deployment pipeline. Demonstrates end-to-end
-                cloud development skills including front-end design, backend APIs, database integration, and automated
-                deployment workflows.
+                Portfolio site (the one you're on) built end-to-end on AWS with Terraform-managed infrastructure.
+                CloudFront serves a private S3 bucket via Origin Access Control, fronted by an ACM-issued TLS
+                certificate and DNS records in Gandi that resolve sanniajean.com and its www alias to the
+                distribution. A Python Lambda behind a CORS-locked HTTP API Gateway handles GET and POST on
+                /visitor, atomically incrementing a DynamoDB counter; browser-side localStorage gates the first
+                POST so each visitor is only counted once instead of on every page load. A GitHub Actions workflow
+                auto-deploys on every push to main: it syncs src/ to S3 and fires a CloudFront invalidation so
+                changes go live immediately.
             </p>
             <div class="project-links">
-                <button onclick="window.open('https://github.com/Sanniaj/cloud-resume-challenge', '_blank')" class="btn-primary">
+                <button onclick="window.open('https://github.com/Sanniaj/cloud-resume-challenge-site', '_blank')" class="btn-primary">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
                     </svg>

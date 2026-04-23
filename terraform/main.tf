@@ -11,6 +11,9 @@ terraform {
     }
   }
 
+  # TODO: replace the placeholder bucket name before running `terraform init`
+  # on a new machine. Needs: an S3 bucket for state + a DynamoDB table named
+  # `terraform-state-lock` with partition key `LockID` (String) for state locking.
   backend "s3" {
     bucket         = "YOUR_TERRAFORM_STATE_BUCKET"
     key            = "cloud-resume/terraform.tfstate"
