@@ -58,11 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         typedText.textContent = currentText;
 
-        let typeSpeed = isDeleting ? 60 : 120;
+        let typeSpeed = isDeleting ? 90 : 180;
 
         if (!isDeleting && j === currentPhrase.length) {
             // Phrase complete, pause before deleting
-            typeSpeed = 1300;
+            typeSpeed = 3000;
             isDeleting = true;
         } else if (isDeleting && j === 0) {
             // Deletion complete, move to next phrase
