@@ -17,7 +17,7 @@ jobs:
           aws-region: us-east-1
 
       - name: Sync to S3
-        run: aws s3 sync src/ s3://YOUR_BUCKET_NAME --delete
+        run: aws s3 sync src/ s3://sanniajean --delete
 
       - name: Invalidate CloudFront cache
-        run: aws cloudfront create-invalidation --distribution-id YOUR_CF_DISTRIBUTION_ID --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id E2L1OL36DY0CJ5 --paths "/*"
