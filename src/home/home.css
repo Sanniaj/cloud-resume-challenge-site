@@ -539,6 +539,11 @@
         order: -1;
     }
 
+    .image-wrapper {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
     .contact-container {
         grid-template-columns: 1fr !important;
         gap: 3rem !important;
@@ -559,6 +564,10 @@
 
     .hero-container {
         gap: 2rem !important;
+    }
+
+    .image-wrapper {
+        max-width: 320px;
     }
 
     .hero-stats {
@@ -615,6 +624,10 @@
 
     .hero-content {
         padding: 1rem 0 !important;
+    }
+
+    .image-wrapper {
+        max-width: 240px;
     }
 
     .content-section {
