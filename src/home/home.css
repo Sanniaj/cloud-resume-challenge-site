@@ -144,7 +144,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    font-family: "Lemon Milk Medium", Arial, sans-serif;
+    font-family: "Montserrat", Arial, sans-serif;
 }
 
 .hero-text p {
@@ -174,7 +174,7 @@
     font-size: clamp(1.2rem, 3vw, 1.5rem);
     font-weight: bold;
     color: #ff5312;
-    font-family: "Lemon Milk Medium", Arial, sans-serif;
+    font-family: "Montserrat", Arial, sans-serif;
 }
 
 .stat-label {
@@ -236,7 +236,7 @@
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: "Lemon Milk", Arial, sans-serif;
+    font-family: "Montserrat", Arial, sans-serif;
 }
 
 .btn-outline:hover {
@@ -277,7 +277,7 @@
     font-size: 0.8rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    font-family: "Lemon Milk", Arial, sans-serif;
+    font-family: "Montserrat", Arial, sans-serif;
 }
 
 .section-header h2 {

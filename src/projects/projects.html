@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,740;1,740&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../global/global.css" />
     <link rel="stylesheet" href="projects.css" />
     <script src="../global/global.js"></script>
@@ -13,12 +16,12 @@
 <body>
 <div class="navbar">
     <div class="homePage">
-        <a href="../home/home.html">Sannia Jean</a>
+        <a href="../home/home.html">SANNIA JEAN</a>
     </div>
     <div class="r-align">
-        <a href="../about/about.html">About Me </a>
-        <a href="projects.html">Projects</a>
-        <a href="../contact/contact.html">Contact</a>
+        <a href="../about/about.html">ABOUT ME </a>
+        <a href="projects.html">PROJECTS</a>
+        <a href="../contact/contact.html">CONTACT</a>
     </div>
 </div>
 
@@ -36,26 +39,58 @@
 
     <div class="projects-grid">
         <div class="project featured-project">
-            <div class="project-badge">Featured</div>
-            <h3>Geo-Info Data Visualization</h3>
-            <p><strong>Tech:</strong> Python, Pandas, Matplotlib, GeoPandas, Jupyter Notebooks</p>
+            <div class="project-badge">FEATURED</div>
+            <h3>FIRESCOPE &mdash; WILDFIRE RISK PREDICTION</h3>
+            <p><strong>Tech:</strong> Python, scikit-learn, pandas, Flask, PostgreSQL, React, TypeScript, deck.gl, Docker</p>
             <p>
-                A geographic data pipeline project focused on data ingestion, preprocessing, and spatial alignment of geospatial datasets.
-                Implemented robust data cleaning workflows to handle inconsistent formats and performed coordinate system transformations for accurate spatial alignment.
-                Utilizes Python's data science libraries to process and standardize large geographic datasets from multiple sources.
-                Demonstrates expertise in ETL processes, spatial data preprocessing, and preparing geospatial data for analysis and visualization.
+                Team-built ML platform predicting California wildfire risk from live environmental data. Trained a
+                scikit-learn Random Forest classifier (300 trees, balanced class weights) on a purpose-built dataset of
+                1,000 labeled samples &mdash; NASA FIRMS fire detections paired with haversine-filtered no-fire points
+                &mdash; achieving 89.5% accuracy and 0.953 ROC-AUC under 10-fold stratified cross-validation.
+                Built a live-inference Flask API that pulls 5 features per request (MODIS EVI, temperature, wind,
+                humidity, elevation) from NASA AppEEARS, Open-Meteo, and Open-Elevation, scales them with a fitted
+                StandardScaler, and returns a risk score and label that drives the risk-zone map. Also engineered
+                geospatial ingestion pipelines for 22k+ CAL FIRE fire perimeters (1950&ndash;present) and U.S. Census
+                TIGER/Line boundaries across 58 counties, 1,769 ZIP codes, and 8,041 census tracts.
             </p>
             <div class="project-links">
                 <button onclick="window.open('https://github.com/Sanniaj/geo-info-data-visualization-project', '_blank')" class="btn-primary">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
                     </svg>
-                    View Code
+                    VIEW CODE
+                </button>
+                <button onclick="window.open('https://firescope.netlify.app', '_blank')" class="btn-secondary">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
+                        <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+                    </svg>
+                    LIVE DEMO
                 </button>
             </div>
         </div>
         <div class="project">
-            <h3>Cloud Resume Challenge</h3>
+            <h3>POCKETPILOT &mdash; AI PERSONAL FINANCE APP</h3>
+            <p><strong>Tech:</strong> React, TypeScript, Tailwind CSS, shadcn/ui, Vite, Expo, Firebase, Rust, Qdrant, Ollama, Docker</p>
+            <p>
+                Team-built AI-assisted personal finance app: a monorepo housing a Vite + React web app, an Expo React
+                Native mobile app, Firebase backend functions, and two Rust microservices (transaction categorization
+                and Retrieval-Augmented Generation) backed by a local Ollama LLM (qwen2.5) and a Qdrant vector store.
+                My contribution was the front-end redesign &mdash; rebuilt the Dashboard, Transactions, Budgets, Goals,
+                and Insights pages in React + TypeScript + Tailwind, imported and adapted a shadcn/ui-based component
+                library from a Figma design, and refined the overall theme, sidebar, and button system for a cleaner,
+                more consistent look across the web app.
+            </p>
+            <div class="project-links">
+                <button onclick="window.open('https://github.com/NimaJafariComp/PocketPilot', '_blank')" class="btn-primary">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                    </svg>
+                    VIEW CODE
+                </button>
+            </div>
+        </div>
+        <div class="project">
+            <h3>CLOUD RESUME CHALLENGE</h3>
             <p><strong>Tech:</strong> AWS (S3, CloudFront, Lambda, DynamoDB, Route 53), HTML/CSS, JavaScript, Python, Infrastructure as Code</p>
             <p>
                 This portfolio website built as part of the Cloud Resume Challenge. Features serverless architecture
@@ -68,18 +103,18 @@
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
                     </svg>
-                    View Code
+                    VIEW CODE
                 </button>
                 <button onclick="window.open('https://www.sanniajean.com', '_blank')" class="btn-secondary">
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
                         <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
                     </svg>
-                    Live Demo
+                    LIVE DEMO
                 </button>
             </div>
         </div>
         <div class="project">
-            <h3>Mass Emailing Lambda SES</h3>
+            <h3>MASS EMAILING LAMBDA SES</h3>
             <p><strong>Tech:</strong> AWS (Lambda, SES, S3, IAM), Python, Boto3</p>
             <p>
                 A serverless email automation system leveraging AWS Lambda and Simple Email Service (SES) to send bulk emails efficiently.
@@ -92,12 +127,12 @@
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
                     </svg>
-                    View Code
+                    VIEW CODE
                 </button>
             </div>
         </div>
         <div class="project">
-            <h3>Flight Reservation System</h3>
+            <h3>FLIGHT RESERVATION SYSTEM</h3>
             <p><strong>Tech:</strong> HTML, CSS, JavaScript, Node.js, Jest, Jira, Agile/Scrum</p>
             <p>
                 A full-stack airline reservation system with admin/user roles, flight scheduling, and payment processing.
@@ -110,14 +145,14 @@
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
                     </svg>
-                    View Code
+                    VIEW CODE
                 </button>
             </div>
         </div>
 
         <!-- Placeholder for future projects -->
         <div class="project coming-soon">
-            <h3>More Projects Coming Soon</h3>
+            <h3>MORE PROJECTS COMING SOON</h3>
             <p>
                 I'm constantly working on new projects and expanding my skills. Check back soon for updates on my latest
                 work.
@@ -127,7 +162,7 @@
                     <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16" style="margin-right: 8px;">
                         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
                     </svg>
-                    View GitHub
+                    VIEW GITHUB
                 </button>
             </div>
         </div>

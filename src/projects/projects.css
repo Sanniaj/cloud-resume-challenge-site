@@ -6,7 +6,7 @@
     padding-top: 120px;
     padding-bottom: 2rem;
     text-align: center;
-    font-family: "Lemon Milk Medium";
+    font-family: "Montserrat";
 }
 
 /* Projects Container */
@@ -60,7 +60,7 @@
     color: #ff5312;
     margin-bottom: 1rem;
     font-size: clamp(1.3rem, 3vw, 1.6rem);
-    font-family: "Lemon Milk Medium";
+    font-family: "Montserrat";
 }
 
 .project p {
@@ -91,7 +91,7 @@
     border-radius: 0 0 10px 10px;
     font-size: 0.8rem;
     font-weight: 600;
-    font-family: "Lemon Milk";
+    font-family: "Montserrat";
 }
 
 /* Coming Soon Project */
@@ -125,7 +125,7 @@
     transition: all 0.3s ease;
     border: 2px solid;
     cursor: pointer;
-    font-family: "Lemon Milk";
+    font-family: "Montserrat";
 }
 
 .btn-primary {
