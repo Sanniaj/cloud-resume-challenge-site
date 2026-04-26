@@ -1,19 +1,43 @@
 // GLOBAL JAVASCRIPT FUNCTIONS
 
 // Copy email function used across multiple pages
-async function copyText() {
+async function copyText(event) {
     try {
         await navigator.clipboard.writeText("hi@sanniajean.com");
         console.log('Email copied!');
-
-        // Optional: Show a temporary success message
-        showCopySuccess();
+        handleCopyFeedback(event);
     } catch (err) {
         console.error('Failed to copy email: ', err);
 
         // Fallback for older browsers
         fallbackCopyTextToClipboard("hi@sanniajean.com");
+        handleCopyFeedback(event);
     }
+}
+
+// Route feedback to the right UI based on where the click came from
+function handleCopyFeedback(event) {
+    const trigger = event && (event.currentTarget || event.target);
+    const footerLink = trigger && trigger.closest && trigger.closest('.footer-email-copy');
+    if (footerLink) {
+        showFooterCopyFeedback(footerLink);
+        return;
+    }
+    showCopySuccess();
+}
+
+// Inline label swap on the footer email link
+function showFooterCopyFeedback(link) {
+    if (link.classList.contains('copied')) return;
+    const label = link.querySelector('.footer-email-label');
+    if (!label) return;
+    const original = label.textContent;
+    link.classList.add('copied');
+    label.textContent = 'Copied!';
+    setTimeout(() => {
+        label.textContent = original;
+        link.classList.remove('copied');
+    }, 1500);
 }
 
 // Show copy success message
