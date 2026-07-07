@@ -1,36 +1,7 @@
 // HOME PAGE JAVASCRIPT
 
-// Visitor counter functionality
-async function incrementAndDisplayVisitorCount() {
-    const API = "https://32qady0p72.execute-api.us-east-1.amazonaws.com/Prod/visitor";
-    const alreadyCounted = localStorage.getItem('visited');
-
-    try {
-        const res = await fetch(API, {
-            method: alreadyCounted ? 'GET' : 'POST',
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-        const raw = await res.json();
-        const body = typeof raw.body === 'string' ? JSON.parse(raw.body) : (raw.body || raw);
-        const count = Number(
-            body?.visitor_count ?? body?.count ?? body?.visits ?? body?.value ?? body
-        );
-
-        if (!alreadyCounted) localStorage.setItem('visited', 'true');
-
-        const el = document.querySelector('.visitors-number');
-        if (el && Number.isFinite(count)) el.textContent = count.toLocaleString();
-    } catch (err) {
-        console.error('Visitor count error:', err);
-    }
-}
-
-
 // typing animation for the home page
 document.addEventListener("DOMContentLoaded", () => {
-    // Call visitor counter when page loads
-    incrementAndDisplayVisitorCount();
 
     const phrases = ["HI, I'M SANNIA JEAN."];
     const typedText = document.getElementById("typed-text");
@@ -151,7 +122,7 @@ function initParallaxEffect() {
 
 // counter animations for hero stats
 function animateCounters() {
-    const statNumbers = document.querySelectorAll('.stat-number:not(.visitors-number)');
+    const statNumbers = document.querySelectorAll('.stat-number');
 
     statNumbers.forEach(stat => {
         const text = stat.textContent.replace(/,/g, ''); // Remove commas for parsing

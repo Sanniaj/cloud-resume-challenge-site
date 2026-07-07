@@ -8,11 +8,6 @@ output "site_url" {
   value       = "https://${var.domain_name}"
 }
 
-output "api_endpoint" {
-  description = "Visitor counter API endpoint"
-  value       = "${aws_apigatewayv2_stage.visitor.invoke_url}/visitor"
-}
-
 output "acm_validation_records" {
   description = "DNS records to add in Gandi to validate the ACM certificate (first-time cert issuance only)"
   value       = { for dvo in aws_acm_certificate.site.domain_validation_options : dvo.domain_name => { name = dvo.resource_record_name, type = dvo.resource_record_type, value = dvo.resource_record_value } }
